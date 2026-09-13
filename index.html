@@ -1,31 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generación de Valor 2040 | Taller Interactivo</title>
+<title>Generación de Valor 2040</title>
 <link rel="stylesheet" href="style.css">
+<style>
+       .screen {
+           display: none;
+       }
+       .screen.active {
+           display: block;
+       }
+       .workshop {
+           min-height: 100vh;
+           padding: 60px 20px;
+       }
+       .workshop-container {
+           max-width: 900px;
+           margin: auto;
+       }
+       .question-card {
+           background: white;
+           border-radius: 24px;
+           padding: 40px;
+           margin-top: 30px;
+           box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+       }
+       .question-number {
+           font-size: 14px;
+           font-weight: bold;
+           letter-spacing: 2px;
+           color: #159447;
+           text-transform: uppercase;
+       }
+       .question-title {
+           font-size: 36px;
+           line-height: 1.2;
+           margin: 15px 0 30px;
+       }
+       .options {
+           display: grid;
+           gap: 15px;
+       }
+       .option {
+           width: 100%;
+           padding: 18px 22px;
+           border: 2px solid #dce5e1;
+           border-radius: 14px;
+           background: white;
+           color: #12352f;
+           text-align: left;
+           cursor: pointer;
+           font-size: 17px;
+           transition: 0.2s;
+       }
+       .option:hover {
+           border-color: #159447;
+           transform: translateY(-2px);
+       }
+       .option.selected {
+           border-color: #159447;
+           background: #eef8f2;
+       }
+       .name-input,
+       .answer-input {
+           width: 100%;
+           padding: 18px;
+           border: 2px solid #dce5e1;
+           border-radius: 14px;
+           font-size: 17px;
+           margin-bottom: 20px;
+       }
+       .next-button {
+           margin-top: 25px;
+           padding: 16px 30px;
+           border: none;
+           border-radius: 50px;
+           background: #12352f;
+           color: white;
+           font-size: 16px;
+           font-weight: bold;
+           cursor: pointer;
+       }
+       .next-button:hover {
+           transform: translateY(-2px);
+       }
+       .progress {
+           font-size: 14px;
+           color: #52635e;
+           margin-bottom: 20px;
+       }
+       .welcome {
+           text-align: center;
+           margin-bottom: 40px;
+       }
+       .welcome h1 {
+           font-size: clamp(45px, 7vw, 80px);
+       }
+       .welcome span {
+           color: #159447;
+       }
+</style>
 </head>
 <body>
-<main class="hero">
-<div class="hero-content">
-<p class="eyebrow">TALLER INTERACTIVO · PRODUCCIÓN</p>
+<!-- PANTALLA 1: INICIO -->
+<section id="inicio" class="screen active">
+<main class="inicio">
+<div class="contenido">
+<p class="etiqueta">
+                   TALLER INTERACTIVO · CSN
+</p>
 <h1>
-               Generación de<br>
+                   Generación de<br>
 <span>Valor 2040</span>
 </h1>
-<p class="intro">
-               Un reto interactivo para explorar cómo la tecnología,
-               la optimización y la eficiencia pueden transformar
-               los activos de producción en Colombia.
+<p class="descripcion">
+                   Un reto interactivo para explorar cómo la tecnología,
+                   la optimización y la eficiencia pueden transformar
+                   los activos de producción en Colombia.
 </p>
 <button id="startButton">
-               Comenzar el reto
-<span>→</span>
+                   COMENZAR EL RETO →
 </button>
 </div>
-<div class="hero-number">
-           2040
-</div>
 </main>
+</section>
+
+<!-- PANTALLA 2: NOMBRE -->
+<section id="nombre" class="screen workshop">
+<div class="workshop-container">
+<div class="welcome">
+<p class="etiqueta">
+                   BIENVENIDO/A
+</p>
+<h1>
+                   Primero,<br>
+<span>conocerte.</span>
+</h1>
+<p class="descripcion">
+                   Escribe el nombre con el que quieres aparecer
+                   durante el taller.
+</p>
+</div>
+<div class="question-card">
+<input
+                   id="participantName"
+                   class="name-input"
+                   type="text"
+                   placeholder="Tu nombre o alias"
+                   maxlength="40"
+>
+<button id="nameButton" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 3: PREGUNTA 1 -->
+<section id="pregunta1" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 1 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Horizonte 2040
+</div>
+<h2 class="question-title">
+                   ¿Qué significa para ti pensar la generación
+                   de valor con horizonte 2040?
+</h2>
+<textarea
+                   id="answer1"
+                   class="answer-input"
+                   rows="5"
+                   placeholder="Escribe tu perspectiva..."
+></textarea>
+<button id="question1Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 4: PREGUNTA 2 -->
+<section id="pregunta2" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 2 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Prioridades estratégicas
+</div>
+<h2 class="question-title">
+                   ¿Cuál debería ser la prioridad más crítica
+                   para generar valor hacia 2040?
+</h2>
+<div class="options">
+<button class="option">
+                       Incrementar y sostener la producción
+</button>
+<button class="option">
+                       Desarrollar reservas y nuevas oportunidades
+</button>
+<button class="option">
+                       Recobro secundario y terciario
+</button>
+<button class="option">
+                       Optimizar activos maduros
+</button>
+<button class="option">
+                       Reducir costos y mejorar eficiencia operacional
+</button>
+</div>
+<button id="question2Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 5: TECNOLOGÍA -->
+<section id="pregunta3" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 3 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Tecnología y valor
+</div>
+<h2 class="question-title">
+                   ¿Cuál de estas palancas tecnológicas podría
+                   generar mayor impacto?
+</h2>
+<div class="options">
+<button class="option">
+                       Recobro mejorado
+</button>
+<button class="option">
+                       Gestión integral del agua
+</button>
+<button class="option">
+                       Dilución
+</button>
+<button class="option">
+                       Robustez
+</button>
+<button class="option">
+                       Confiabilidad eléctrica y eficiencia energética
+</button>
+<button class="option">
+                       IA para optimización de producción
+</button>
+</div>
+<button id="question3Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 6: ACTIVOS -->
+<section id="pregunta4" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 4 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Activos
+</div>
+<h2 class="question-title">
+                   ¿Dónde ves el mayor desafío u oportunidad
+                   de generación de valor?
+</h2>
+<div class="options">
+<button class="option">
+                       Caño Sur
+</button>
+<button class="option">
+                       Rubiales
+</button>
+<button class="option">
+                       Huila
+</button>
+<button class="option">
+                       Putumayo
+</button>
+</div>
+<button id="question4Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 7: HITOS -->
+<section id="pregunta5" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 5 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Ejecución
+</div>
+<h2 class="question-title">
+                   ¿Qué tipo de hito debería priorizarse
+                   para asegurar la ejecución del plan?
+</h2>
+<div class="options">
+<button class="option">
+                       Aumento de capacidad de producción
+</button>
+<button class="option">
+                       Confiabilidad e integridad de activos
+</button>
+<button class="option">
+                       Gestión y reúso del agua
+</button>
+<button class="option">
+                       Eficiencia energética y descarbonización
+</button>
+<button class="option">
+                       Desarrollo y maduración de ingenierías
+</button>
+</div>
+<button id="question5Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 8: IA -->
+<section id="pregunta6" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 6 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Inteligencia artificial
+</div>
+<h2 class="question-title">
+                   ¿Qué aplicación de IA debería escalarse
+                   con mayor prioridad?
+</h2>
+<div class="options">
+<button class="option">
+                       Capacidades SIPs
+</button>
+<button class="option">
+                       Guías y ventanas operativas
+</button>
+<button class="option">
+                       Sistemas de recolección
+</button>
+<button class="option">
+                       Descarbonización y eficiencia
+</button>
+<button class="option">
+                       Hopper de oportunidades
+</button>
+<button class="option">
+                       IA-SurNet
+</button>
+</div>
+<button id="question6Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 9: RIESGO -->
+<section id="pregunta7" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 7 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Debate
+</div>
+<h2 class="question-title">
+                   ¿Cuál consideras que es el mayor riesgo
+                   para ejecutar esta visión?
+</h2>
+<textarea
+                   id="answer7"
+                   class="answer-input"
+                   rows="5"
+                   placeholder="Argumenta tu respuesta..."
+></textarea>
+<button id="question7Button" class="next-button">
+                   CONTINUAR →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 10: CAMBIO -->
+<section id="pregunta8" class="screen workshop">
+<div class="workshop-container">
+<div class="progress">
+               Pregunta 8 de 8
+</div>
+<div class="question-card">
+<div class="question-number">
+                   Tu propuesta
+</div>
+<h2 class="question-title">
+                   Si pudieras cambiar una cosa del roadmap
+                   2026–2028 para acercarnos al horizonte 2040,
+                   ¿qué cambiarías?
+</h2>
+<textarea
+                   id="answer8"
+                   class="answer-input"
+                   rows="6"
+                   placeholder="Escribe tu propuesta..."
+></textarea>
+<button id="finishButton" class="next-button">
+                   FINALIZAR TALLER →
+</button>
+</div>
+</div>
+</section>
+
+<!-- PANTALLA 11: FINAL -->
+<section id="final" class="screen workshop">
+<div class="workshop-container">
+<div class="welcome">
+<p class="etiqueta">
+                   TALLER COMPLETADO
+</p>
+<h1>
+                   Gracias por<br>
+<span>participar.</span>
+</h1>
+<p class="descripcion">
+                   Tus ideas hacen parte de la conversación sobre
+                   cómo generar valor hacia 2040.
+</p>
+</div>
+<div class="question-card">
+<h2>
+                   ¡Tu perspectiva cuenta! 🚀
+</h2>
+<p>
+                   En la siguiente etapa conectaremos las respuestas
+                   de todos los participantes para construir una
+                   visión colectiva.
+</p>
+</div>
+</div>
+</section>
+
 <script src="script.js"></script>
 </body>
 </html>
