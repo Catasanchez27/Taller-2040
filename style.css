@@ -1,0 +1,188 @@
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f7f5;
+
+    color: #12352f;
+
+}
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 80px 10%;
+
+    background:
+
+        radial-gradient(circle at 85% 20%, #d9f1e4 0%, transparent 35%),
+
+        linear-gradient(135deg, #f4f8f6 0%, #ffffff 100%);
+
+}
+
+.hero-content {
+
+    max-width: 850px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.eyebrow {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+    color: #357a63;
+
+}
+
+h1 {
+
+    font-size: clamp(55px, 8vw, 105px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 35px;
+
+}
+
+h1 span {
+
+    color: #159447;
+
+}
+
+.intro {
+
+    max-width: 650px;
+
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    color: #52635e;
+
+    margin-bottom: 40px;
+
+}
+
+button {
+
+    border: none;
+
+    padding: 18px 30px;
+
+    border-radius: 50px;
+
+    background: #12352f;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+}
+
+button span {
+
+    margin-left: 12px;
+
+    font-size: 20px;
+
+}
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 30px rgba(18, 53, 47, 0.2);
+
+}
+
+.hero-number {
+
+    position: absolute;
+
+    right: 5%;
+
+    bottom: -5%;
+
+    font-size: clamp(180px, 30vw, 430px);
+
+    font-weight: bold;
+
+    color: rgba(21, 148, 71, 0.06);
+
+    line-height: 1;
+
+    user-select: none;
+
+}
+
+@media (max-width: 700px) {
+
+    .hero {
+
+        padding: 60px 8%;
+
+    }
+
+    h1 {
+
+        letter-spacing: -2px;
+
+    }
+
+    .intro {
+
+        font-size: 18px;
+
+    }
+
+    .hero-number {
+
+        right: -10%;
+
+        bottom: 5%;
+
+        font-size: 180px;
+
+    }
+
+}
+ 
