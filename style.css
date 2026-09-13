@@ -1,10 +1,31 @@
-* {
+/* ========================================
 
-    box-sizing: border-box;
+   GENERACIÓN DE VALOR 2040
+
+   ESTILOS PRINCIPALES
+
+======================================== */
+
+
+/* ----------------------------------------
+
+   CONFIGURACIÓN GENERAL
+
+---------------------------------------- */
+
+* {
 
     margin: 0;
 
     padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
 
 }
 
@@ -16,9 +37,37 @@ body {
 
     color: #12352f;
 
+    min-height: 100vh;
+
 }
 
-.hero {
+
+/* ----------------------------------------
+
+   PANTALLAS
+
+---------------------------------------- */
+
+.screen {
+
+    min-height: 100vh;
+
+}
+
+.screen.active {
+
+    display: block;
+
+}
+
+
+/* ----------------------------------------
+
+   PORTADA
+
+---------------------------------------- */
+
+.inicio {
 
     min-height: 100vh;
 
@@ -26,55 +75,95 @@ body {
 
     align-items: center;
 
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 80px 10%;
+    justify-content: center;
 
     background:
 
-        radial-gradient(circle at 85% 20%, #d9f1e4 0%, transparent 35%),
+        radial-gradient(
 
-        linear-gradient(135deg, #f4f8f6 0%, #ffffff 100%);
+            circle at 80% 20%,
+
+            rgba(21, 148, 71, 0.12),
+
+            transparent 35%
+
+        ),
+
+        linear-gradient(
+
+            135deg,
+
+            #eef7f2,
+
+            #ffffff
+
+        );
+
+    padding: 40px 20px;
 
 }
 
-.hero-content {
 
-    max-width: 850px;
+.contenido {
 
-    position: relative;
+    width: min(900px, 90%);
 
-    z-index: 2;
+    text-align: center;
+
+    animation: aparecer 0.8s ease;
 
 }
 
-.eyebrow {
 
-    font-size: 14px;
+/* ----------------------------------------
 
-    font-weight: bold;
+   ETIQUETAS
+
+---------------------------------------- */
+
+.etiqueta {
+
+    font-size: 13px;
 
     letter-spacing: 4px;
 
-    margin-bottom: 30px;
+    font-weight: bold;
 
-    color: #357a63;
+    color: #12352f;
+
+    margin-bottom: 25px;
+
+    text-transform: uppercase;
 
 }
+
+
+/* ----------------------------------------
+
+   TÍTULOS
+
+---------------------------------------- */
 
 h1 {
 
-    font-size: clamp(55px, 8vw, 105px);
+    font-size: clamp(
+
+        55px,
+
+        8vw,
+
+        100px
+
+    );
 
     line-height: 0.95;
 
-    letter-spacing: -4px;
+    margin-bottom: 30px;
 
-    margin-bottom: 35px;
+    font-weight: 700;
 
 }
+
 
 h1 span {
 
@@ -82,25 +171,57 @@ h1 span {
 
 }
 
-.intro {
+
+h2 {
+
+    color: #12352f;
+
+}
+
+
+/* ----------------------------------------
+
+   TEXTO INTRODUCTORIO
+
+---------------------------------------- */
+
+.descripcion {
 
     max-width: 650px;
 
-    font-size: 21px;
+    margin: auto;
+
+    font-size: 20px;
 
     line-height: 1.6;
 
     color: #52635e;
 
-    margin-bottom: 40px;
-
 }
+
+
+/* ----------------------------------------
+
+   BOTONES
+
+---------------------------------------- */
 
 button {
 
-    border: none;
+    font-family: inherit;
 
-    padding: 18px 30px;
+}
+
+
+#startButton,
+
+.next-button {
+
+    margin-top: 30px;
+
+    padding: 17px 32px;
+
+    border: none;
 
     border-radius: 50px;
 
@@ -108,79 +229,591 @@ button {
 
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: bold;
 
+    letter-spacing: 0.5px;
+
     cursor: pointer;
 
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition:
+
+        transform 0.2s ease,
+
+        background 0.2s ease,
+
+        box-shadow 0.2s ease;
 
 }
 
-button span {
 
-    margin-left: 12px;
+#startButton:hover,
 
-    font-size: 20px;
-
-}
-
-button:hover {
+.next-button:hover {
 
     transform: translateY(-3px);
 
-    box-shadow: 0 12px 30px rgba(18, 53, 47, 0.2);
+    background: #159447;
+
+    box-shadow:
+
+        0 10px 25px
+
+        rgba(18, 53, 47, 0.18);
 
 }
+
+
+/* ----------------------------------------
+
+   NÚMERO 2040 DE LA PORTADA
+
+---------------------------------------- */
 
 .hero-number {
 
     position: absolute;
 
-    right: 5%;
+    right: 5vw;
 
-    bottom: -5%;
+    bottom: 5vh;
 
-    font-size: clamp(180px, 30vw, 430px);
+    font-size: 15vw;
 
     font-weight: bold;
 
     color: rgba(21, 148, 71, 0.06);
 
-    line-height: 1;
-
-    user-select: none;
+    pointer-events: none;
 
 }
 
-@media (max-width: 700px) {
 
-    .hero {
+/* ----------------------------------------
 
-        padding: 60px 8%;
+   ZONA DEL WORKSHOP
+
+---------------------------------------- */
+
+.workshop {
+
+    min-height: 100vh;
+
+    padding:
+
+        70px 20px
+
+        80px;
+
+}
+
+
+.workshop-container {
+
+    width: min(
+
+        900px,
+
+        100%
+
+    );
+
+    margin: auto;
+
+}
+
+
+/* ----------------------------------------
+
+   CABECERA DE BIENVENIDA
+
+---------------------------------------- */
+
+.welcome {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+.welcome h1 {
+
+    font-size:
+
+        clamp(
+
+            45px,
+
+            7vw,
+
+            80px
+
+        );
+
+}
+
+
+.welcome .descripcion {
+
+    margin-top: 15px;
+
+}
+
+
+/* ----------------------------------------
+
+   TARJETAS
+
+---------------------------------------- */
+
+.question-card {
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding:
+
+        40px;
+
+    box-shadow:
+
+        0 15px 40px
+
+        rgba(
+
+            18,
+
+            53,
+
+            47,
+
+            0.08
+
+        );
+
+    border:
+
+        1px solid
+
+        rgba(
+
+            18,
+
+            53,
+
+            47,
+
+            0.06
+
+        );
+
+    animation:
+
+        aparecer 0.5s ease;
+
+}
+
+
+/* ----------------------------------------
+
+   NÚMERO DE PREGUNTA
+
+---------------------------------------- */
+
+.question-number {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #159447;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* ----------------------------------------
+
+   TÍTULO DE PREGUNTA
+
+---------------------------------------- */
+
+.question-title {
+
+    font-size:
+
+        clamp(
+
+            28px,
+
+            4vw,
+
+            42px
+
+        );
+
+    line-height: 1.2;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ----------------------------------------
+
+   OPCIONES
+
+---------------------------------------- */
+
+.options {
+
+    display: grid;
+
+    gap: 14px;
+
+}
+
+
+.option {
+
+    width: 100%;
+
+    padding:
+
+        18px 22px;
+
+    border:
+
+        2px solid
+
+        #dce5e1;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: #12352f;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    line-height: 1.4;
+
+    transition:
+
+        border 0.2s ease,
+
+        background 0.2s ease,
+
+        transform 0.2s ease,
+
+        box-shadow 0.2s ease;
+
+}
+
+
+.option:hover {
+
+    border-color: #159447;
+
+    transform:
+
+        translateY(-2px);
+
+    box-shadow:
+
+        0 6px 15px
+
+        rgba(
+
+            21,
+
+            148,
+
+            71,
+
+            0.08
+
+        );
+
+}
+
+
+.option.selected {
+
+    border-color:
+
+        #159447;
+
+    background:
+
+        #eef8f2;
+
+    box-shadow:
+
+        0 0 0 3px
+
+        rgba(
+
+            21,
+
+            148,
+
+            71,
+
+            0.08
+
+        );
+
+}
+
+
+/* ----------------------------------------
+
+   CAMPOS DE TEXTO
+
+---------------------------------------- */
+
+.name-input,
+
+.answer-input {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border:
+
+        2px solid
+
+        #dce5e1;
+
+    border-radius: 14px;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    color: #12352f;
+
+    background: #ffffff;
+
+    outline: none;
+
+    transition:
+
+        border 0.2s ease,
+
+        box-shadow 0.2s ease;
+
+    margin-bottom: 20px;
+
+}
+
+
+.name-input:focus,
+
+.answer-input:focus {
+
+    border-color:
+
+        #159447;
+
+    box-shadow:
+
+        0 0 0 4px
+
+        rgba(
+
+            21,
+
+            148,
+
+            71,
+
+            0.08
+
+        );
+
+}
+
+
+.answer-input {
+
+    resize: vertical;
+
+    min-height: 130px;
+
+    line-height: 1.5;
+
+}
+
+
+.name-input::placeholder,
+
+.answer-input::placeholder {
+
+    color: #9aa8a3;
+
+}
+
+
+/* ----------------------------------------
+
+   PROGRESO
+
+---------------------------------------- */
+
+.progress {
+
+    display: inline-block;
+
+    padding:
+
+        8px 14px;
+
+    margin-bottom: 15px;
+
+    border-radius: 50px;
+
+    background: #eaf5ef;
+
+    color: #159447;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ----------------------------------------
+
+   ANIMACIÓN
+
+---------------------------------------- */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(20px);
 
     }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+/* ----------------------------------------
+
+   RESPONSIVE — CELULAR
+
+---------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .inicio {
+
+        padding:
+
+            30px 18px;
+
+    }
+
 
     h1 {
 
-        letter-spacing: -2px;
+        font-size:
+
+            clamp(
+
+                48px,
+
+                14vw,
+
+                70px
+
+            );
 
     }
 
-    .intro {
 
-        font-size: 18px;
+    .descripcion {
+
+        font-size: 17px;
 
     }
+
+
+    .workshop {
+
+        padding:
+
+            40px 15px;
+
+    }
+
+
+    .question-card {
+
+        padding:
+
+            25px 20px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .question-title {
+
+        font-size: 28px;
+
+    }
+
+
+    .option {
+
+        font-size: 16px;
+
+        padding:
+
+            16px 18px;
+
+    }
+
 
     .hero-number {
 
-        right: -10%;
-
-        bottom: 5%;
-
-        font-size: 180px;
+        display: none;
 
     }
 
