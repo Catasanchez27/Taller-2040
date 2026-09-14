@@ -319,6 +319,7 @@ document
            console.log("PARTICIPANTE:");
            console.log(participant);
            showScreen("final");
+          loadResponsesWall();
        }
    });
 
