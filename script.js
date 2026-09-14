@@ -103,18 +103,20 @@ async function saveAnswer(question, answer) {
        if (error) {
            console.error("Error guardando respuesta:", error);
            alert(
-               "La respuesta no pudo guardarse. Revisa la conexión con Supabase."
+               "ERROR SUPABASE: " + error.message
            );
            return false;
        }
-       console.log("Respuesta guardada correctamente.");
+       console.log("Respuesta guardada correctamente:", data);
        return true;
    } catch (error) {
-       console.error(error);
+       console.error("Error de conexión:", error);
+       alert(
+           "ERROR DE CONEXIÓN: " + error.message
+       );
        return false;
    }
 }
-
 // =====================================================
 // 7. PREGUNTA 1 — HORIZONTE 2040
 // =====================================================
