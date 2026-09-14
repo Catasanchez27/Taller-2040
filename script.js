@@ -118,6 +118,48 @@ async function saveAnswer(question, answer) {
    }
 }
 // =====================================================
+// MURO DE RESPUESTAS
+// =====================================================
+async function loadResponsesWall() {
+   const wall = document.getElementById("responsesWall");
+   if (!wall) return;
+   wall.innerHTML = "<p>Cargando respuestas...</p>";
+   const { data, error } = await supabaseClient
+       .from("Taller2040-responses")
+       .select("participant_name, question, answer, created_at")
+       .order("created_at", { ascending: true });
+   if (error) {
+       console.error("Error cargando el muro:", error);
+       wall.innerHTML = "<p>No fue posible cargar las respuestas.</p>";
+       return;
+   }
+   wall.innerHTML = "";
+   if (!data || data.length === 0) {
+       wall.innerHTML = "<p>Aún no hay respuestas compartidas.</p>";
+       return;
+   }
+   data.forEach(function(response) {
+       addResponseToWall(response);
+   });
+}
+
+function addResponseToWall(response) {
+   const wall = document.getElementById("responsesWall");
+   if (!wall) return;
+   const card = document.createElement("div");
+   card.className = "response-card";
+   card.innerHTML = `
+<strong>${response.participant_name || "Participante"}</strong>
+<p class="response-question">
+           ${response.question || ""}
+</p>
+<p class="response-answer">
+           ${response.answer || ""}
+</p>
+   `;
+   wall.appendChild(card);
+}
+// =====================================================
 // 7. PREGUNTA 1 — HORIZONTE 2040
 // =====================================================
 document
