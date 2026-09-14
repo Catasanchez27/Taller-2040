@@ -96,7 +96,7 @@ async function saveAnswer(question, answer) {
            .insert([
                {
                    participant_name: participant.name,
-                   question_text: question,
+                   question: question,
                    answer: answer
                }
            ]);
